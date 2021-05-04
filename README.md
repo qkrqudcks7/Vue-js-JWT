@@ -58,6 +58,7 @@ JWT를 생성 및 검증하는 컴포넌트를 생성했다. UserDetailsImpl에�
 
 #### 4. 토큰에 저장할 유저정보(UserDetailsService)
 ![image](https://user-images.githubusercontent.com/66015002/116981070-01ff9900-ad02-11eb-8190-93fc159b1a07.png)
+
 Username을 아이디로 지정하여 찾아온다.
 
 #### 5.SecurityConfig 추가 작성
