@@ -68,3 +68,6 @@ Cross Origin Resource Sharing. 다른 출처의 자원을 공유할 수 있도�
 1. registry.addMapping으로 CORS에 적용할 URL 패턴을 정의한다.
 2. registry.allowdOrigins로 자원 공유를 허락할 Origin을 지정한다.
 3. registry.allowedMethods로 허용할 HTTP method를 지정한다. 
+
+#### 6. 로그인
+![image](https://user-images.githubusercontent.com/66015002/116983663-56f0de80-ad05-11eb-8a85-aae09feff6c7.png)
