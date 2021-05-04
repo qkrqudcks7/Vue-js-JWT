@@ -4,12 +4,25 @@
 ## rest api , spring security jwt , vue.js , vuex 위주로 작성 
 <hr/>
 
-## 1. Spring security JWT(Json Web Token)
+## :pushpin: 1. Spring security JWT(Json Web Token) 
 토큰 기반 인증 시스템에서 주로 사용하는 JWT를 SpringSecurity 기반으로 로그인 처리를 했습니다.
 
-<b>왜 토큰 기반인가?</b>
+### :question: 왜 토큰 기반인가?
 
-### 1. postgresql에 xlsx 파일 저장
+#### [ 토큰 기반 인증 시스템 ]
+인증받은 사용자들에게 토큰을 발급하고, 서버에 요청을 할 때 헤더에 토큰을 함께 보내도록 하여 유효성 검사를 한다.
+이런 시스템은 더이상 사용자의 인증 정보를 서버에 유지하지 않고 클라이언트 측에서 들어오는 요청만으로 작업을 처리한다.
+따라서 사용자의 로그인 여부에 신경쓰지 않고 쉽게 시스템을 확장할 수 있다.
+
+![](https://blog.kakaocdn.net/dn/ogoAg/btqAriyT5sY/YYt2wkEz50kKN47mLwRDXK/img.png)
+
+1. 사용자가 아이디 , 비밀번호로 로그인
+2. 서버에서 해당 정보를 확인
+3. 해당 정보가 있다면, 사용자에게 토큰을 발급
+4. 클레이언트에서 전달받은 토큰을 저장하고, 서버에 요청을 할 때마다 해당 토큰을 서버에 함께 전달
+5. 서버는 토큰을 검증하고, 요청에 응답
+
+### :pushpin: 1. postgresql에 xlsx 파일 저장
 > 빅데이터 엑셀 파일에 결측치를 제거하고 정제하는 과정을 가짐. 저장할 때 csv파일로 바꿔 저장함. db에 엑셀 연동 저장방식 중, csv 저장 방식을 사용하기 위함.
 
 > 엑셀 항목 중 가격, 상품명 , 품질 등과 같은 필수적인 컬럼은 nullable=false , 그 외 나머지 값들은 nullable=true 지정.
@@ -31,7 +44,7 @@ spring:
  <hr/>
  
  
- ### 2. MVC 패턴
+ ### 📌 2. MVC 패턴
  
  > Repository - Service - domain - dto - controller 방식으로 구현
  
