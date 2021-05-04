@@ -23,6 +23,8 @@
 5. 서버는 토큰을 검증하고, 요청에 응답
 
 
+<hr/>
+
 ### :question: JWT란?
 Json Web Token은 JSON 객체로 정보를 전송하는 웹표준이다.
 JWT는 <b>'.'</b>을 구분자로 세 부분으로 구분된 문자열이다.
@@ -35,3 +37,34 @@ JWT는 <b>'.'</b>을 구분자로 세 부분으로 구분된 문자열이다.
 
 JWT는 다른 토큰들과 달리 토큰자체에 데이터를 가지고 있다. 때문에 사용자 인증 요청시 필요한 정보를 전달하는 객체로 사용할 수 있다.
 
+<hr/>
+
+### :point_right: Spring Boot JWT 적용
+
+#### 1. SecurityConfig 작성
+Spring Security를 이용하기 위해서 WebSecurityConfigurerAdapter를 상속받은 클래스에 @EnableWebSecurity를 넣음으로서 Spring Security Filter Chain 을 사용한다는 것을 명시
+![image](https://user-images.githubusercontent.com/66015002/116978941-581f0d00-acff-11eb-926a-3ec3a148a61c.png)
+
+#### 2. JWT 생성, 검증 컴포넌트 작성
+
+![image](https://user-images.githubusercontent.com/66015002/116979883-80f3d200-ad00-11eb-9478-c33398b4822b.png)
+
+JWT를 생성 및 검증하는 컴포넌트를 생성했다. UserDetailsImpl에서 로그인 된 정보를 토큰에 저장하여 생성한다.
+
+#### 3. 실제 인증 작업을 하는 필터 생성
+![image](https://user-images.githubusercontent.com/66015002/116980838-b3ea9580-ad01-11eb-8b6a-1e5a9b059fa2.png)
+
+검증이 끝난 JWT로부터 유저 정보를 받아옵니다.
+
+#### 4. 토큰에 저장할 유저정보(UserDetailsService)
+![image](https://user-images.githubusercontent.com/66015002/116981070-01ff9900-ad02-11eb-8190-93fc159b1a07.png)
+Username을 아이디로 지정하여 찾아온다.
+
+#### 5.SecurityConfig 추가 작성
+![image](https://user-images.githubusercontent.com/66015002/116982248-86065080-ad03-11eb-8362-50d08ad50ff1.png)
+
+#### :question: CORS란?
+Cross Origin Resource Sharing. 다른 출처의 자원을 공유할 수 있도록 설정하는 권한 체제이다.
+1. registry.addMapping으로 CORS에 적용할 URL 패턴을 정의한다.
+2. registry.allowdOrigins로 자원 공유를 허락할 Origin을 지정한다.
+3. registry.allowedMethods로 허용할 HTTP method를 지정한다. 
