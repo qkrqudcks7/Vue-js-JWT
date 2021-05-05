@@ -74,3 +74,35 @@ Cross Origin Resource Sharing. 다른 출처의 자원을 공유할 수 있도�
 ![image](https://user-images.githubusercontent.com/66015002/116983663-56f0de80-ad05-11eb-8a85-aae09feff6c7.png)
 
 ## :pushpin: 2. Vue.js 로그인 처리
+
+### :point_right: Vue.js 로그인
+
+1. 로그인 데이터 처리
+
+![image](https://user-images.githubusercontent.com/66015002/117161677-16748c00-adfd-11eb-90ed-0548b59bc6c0.png)
+
+1. axios를 통해 로그인 api에 아이디, 비밀번호 값이 들어온다.
+2. 로그인이 되면 토큰 값을 받는다.
+3. 받아온 토큰 값을 localStorage에 저장한다.
+
+#### :exclamation:   js에서 localStorage.setItem()을 할 때, localStorage는 js의 오브젝트를 저장할 수 없다. 따라서 object -> string 바꿔 localstorage에 저장해야한다.
+
+
+2. auth_header.js 모듈 생성
+
+![image](https://user-images.githubusercontent.com/66015002/117158648-92b9a000-adfa-11eb-9d8d-960cbb96dc15.png)
+
+로그인시 발급받은 토큰을 auth api 요청시 헤더에 설정하는 모듈이다. localStorage에 저장하는 방식을 사용했다. 데이터를 담은 localStorage에서 js로 값을 불러오기 위해서, JSON.parse를 이용하였다. 따라서 유저정보와 토큰 값이 있다면, JWT 토큰 값을 반환해주는 모듈이다.
+
+### :question: 왜 localStorage 방식인가?
+
+#### [ localStorage ]
+
+클라이언트 단에서 데이터를 저장할 수 있는 기술인 웹 스토리지에는 <b>'로컬 스토리지'</b>와 <b>'세션 스토리지'</b> 방식이 있다.
+이 두 방식의 차이점은 데이터가 어떤 범위 내에서 얼마나 오래 보존되느냐에 있다. 세션 스토리지는 웹페이지의 세션이 끝날 때 저장된 데이터가 지워지는 반면에, <b>로컬 스토리지는 웹페이지의 세션이 끝나더라도 데이터가 지워지지 않는다.</b> 따라서 로컬 스토리지의 경우 여러 탭이나 창 간에 데이터가 서로 공유되며 탭이나 창을 닫아도 데이터는 브라우저에 그대로 남아 있다.
+
+3. 사용자 데이터 받아오는 모듈
+
+![image](https://user-images.githubusercontent.com/66015002/117162789-0c9f5880-adfe-11eb-904f-a1e33ce719d5.png)
+ 
+ 앞서 생성한 auth_header.js 모듈의 함수를 사용하여 토큰 값을 api로 보내, 로그인한 유저 정보를 가져오는 모듈이다.
