@@ -32,7 +32,7 @@ JWT는 <b>'.'</b>을 구분자로 세 부분으로 구분된 문자열이다.
 ![](https://blog.kakaocdn.net/dn/cmtrRL/btqAZO41bpf/6bLetr0rhyyjENyROBfAO1/img.png)
 
 1. header : 토큰 타입, 해싱 알고리즘을 저장
-2. payload : 실제 전달한 데이터
+2. payload : 실제 전달할 데이터
 3. signature : 위변조를 방지하기 위한 값
 
 JWT는 다른 토큰들과 달리 토큰자체에 데이터를 가지고 있다. 때문에 사용자 인증 요청시 필요한 정보를 전달하는 객체로 사용할 수 있다.
