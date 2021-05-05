@@ -73,6 +73,8 @@ Cross Origin Resource Sharing. 다른 출처의 자원을 공유할 수 있도�
 #### 6. 로그인
 ![image](https://user-images.githubusercontent.com/66015002/116983663-56f0de80-ad05-11eb-8a85-aae09feff6c7.png)
 
+<hr/>
+
 ## :pushpin: 2. Vue.js 로그인 처리
 
 ### :point_right: Vue.js 로그인
