@@ -1,4 +1,4 @@
-# Spring Boot + Vue.js 연습 (게시판)
+# Spring Boot + Vue.js (JWT+게시판)
 
 
 ## rest api , spring security jwt , vue.js , vuex 위주로 작성 
